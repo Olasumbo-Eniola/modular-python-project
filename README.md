@@ -1,7 +1,7 @@
 # SEN 401 Student Score Application
 
-The application displays a list of students
-and identifies the students with the highest and lowest scores.
+The application displays a formatted student score report and calculates the
+highest, lowest, average, and median scores.
 
 ## Project Structure
 
@@ -46,6 +46,20 @@ Invalid data is rejected with a clear error. For example,
 outside the accepted range. The data class is also immutable, which prevents
 student records from being changed accidentally after creation.
 
+## Reporting Features
+
+The console output uses aligned columns so the student data is easier to scan.
+The summary includes:
+
+- Number of students
+- Highest score
+- Lowest score
+- Average score
+- Median score
+
+The average and median are calculated with Python's standard-library
+`statistics` module. The median is the middle score after the scores have been
+arranged in order. When there are two middle scores, their average is used.
 
 
 ## How to Run the Application
@@ -65,17 +79,24 @@ python3 app.py
 Expected output:
 
 ```text
-Student Scores
-------------------------------
-Ada: 84
-Chidi: 92
-Fatima: 76
-Tunde: 88
-
-Score Summary
-------------------------------
-Highest: Chidi (92)
-Lowest: Fatima (76)
+======================================
+         STUDENT SCORE REPORT         
+======================================
+No.  Student                     Score
+--------------------------------------
+1    Ada                            84
+2    Chidi                          92
+3    Fatima                         76
+4    Tunde                          88
+--------------------------------------
+            SCORE SUMMARY             
+--------------------------------------
+Number of students:                  4
+Highest score:              92 (Chidi)
+Lowest score:               76 (Fatima)
+Average score:                   85.00
+Median score:                    86.00
+======================================
 ```
 
 ## How the Modules Work Together
@@ -83,7 +104,7 @@ Lowest: Fatima (76)
 1. `models.py` defines the rules for valid student data.
 2. `students.py` creates the validated student list.
 3. `app.py` sends that list to the functions in `utils/helpers.py`.
-4. The helper functions use `max()` and `min()` to find the required students.
+4. The helper functions calculate the score statistics.
 5. `app.py` prints the student list and summary.
 
 If the student list is empty, the application displays a helpful message
