@@ -83,6 +83,19 @@ Run the application:
 python3 app.py
 ```
 
+## FastAPI
+
+Install dependencies and start the API:
+
+```bash
+python3 -m pip install -r requirements.txt
+uvicorn api:app --reload --port 8000
+```
+
+Open `http://localhost:8000/docs` for the interactive API documentation.
+Available routes are `GET /health`, `GET /students`,
+`GET /students/summary`, and `POST /students`.
+
 Expected output:
 
 ```text
