@@ -21,11 +21,18 @@ Each file has one main responsibility:
 
 - `app.py` controls the flow of the program.
 - `models.py` defines the validated `Student` data class.
-- `students.py` keeps the data separate from the program logic.
+- `students.py` stores immutable default records and provides functions that
+  create fresh, validated student lists.
 - `utils/helpers.py` contains functions that can be reused elsewhere.
 - `utils/__init__.py` allows Python to treat `utils` as a package.
 
 This separation makes the project easier to read, test, and expand.
+
+The raw sample data is stored in `DEFAULT_STUDENT_RECORDS`. The
+`create_students()` function converts any compatible records into validated
+objects, while `get_default_students()` returns a fresh list for the demo. This
+prevents one part of the application from accidentally changing the original
+data used elsewhere.
 
 ## Requirements
 
@@ -102,7 +109,7 @@ Median score:                    86.00
 ## How the Modules Work Together
 
 1. `models.py` defines the rules for valid student data.
-2. `students.py` creates the validated student list.
+2. `students.py` stores the default records and creates a fresh validated list.
 3. `app.py` sends that list to the functions in `utils/helpers.py`.
 4. The helper functions calculate the score statistics.
 5. `app.py` prints the student list and summary.

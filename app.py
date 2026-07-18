@@ -1,4 +1,6 @@
-from students import students
+"""Display the student score report in the console."""
+
+from students import get_default_students
 from utils.helpers import (
     get_average_score,
     get_highest_scoring_student,
@@ -8,9 +10,11 @@ from utils.helpers import (
 
 
 LINE_WIDTH = 38
+students = get_default_students()
 
 
 def display_students() -> None:
+    """Display all student records as a formatted table."""
     print("=" * LINE_WIDTH)
     print("STUDENT SCORE REPORT".center(LINE_WIDTH))
     print("=" * LINE_WIDTH)
@@ -30,6 +34,7 @@ def display_students() -> None:
 
 
 def display_score_summary() -> None:
+    """Display summary statistics for the current student list."""
     highest = get_highest_scoring_student(students)
     lowest = get_lowest_scoring_student(students)
     average = get_average_score(students)
@@ -52,6 +57,7 @@ def display_score_summary() -> None:
 
 
 def main() -> None:
+    """Run the student score report."""
     display_students()
     display_score_summary()
 
