@@ -1,7 +1,10 @@
 
+from models import Student
+
+
 students = [
-    {"name": "Ada", "score": 84},
-    {"name": "Chidi", "score": 92},
-    {"name": "Fatima", "score": 76},
-    {"name": "Tunde", "score": 88},
+    Student(name="Ada", score=84),
+    Student(name="Chidi", score=92),
+    Student(name="Fatima", score=76),
+    Student(name="Tunde", score=88),
 ]

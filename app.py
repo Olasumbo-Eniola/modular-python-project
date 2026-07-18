@@ -2,7 +2,7 @@ from students import students
 from utils.helpers import get_highest_scoring_student, get_lowest_scoring_student
 
 
-def display_students():
+def display_students() -> None:
     print("Student Scores")
     print("-" * 30)
 
@@ -11,10 +11,10 @@ def display_students():
         return
 
     for student in students:
-        print("{}: {}".format(student["name"], student["score"]))
+        print(f"{student.name}: {student.score}")
 
 
-def display_score_summary():
+def display_score_summary() -> None:
     highest = get_highest_scoring_student(students)
     lowest = get_lowest_scoring_student(students)
 
@@ -25,11 +25,11 @@ def display_score_summary():
         print("No scores are available.")
         return
 
-    print("Highest: {} ({})".format(highest["name"], highest["score"]))
-    print("Lowest: {} ({})".format(lowest["name"], lowest["score"]))
+    print(f"Highest: {highest.name} ({highest.score})")
+    print(f"Lowest: {lowest.name} ({lowest.score})")
 
 
-def main():
+def main() -> None:
     display_students()
     display_score_summary()
 
